@@ -10,4 +10,6 @@ public interface VagaRepository extends JpaRepository<VagaModel, Long> {
     public List<VagaModel> findAllByTituloContainingIgnoreCase(String titulo);
 
     public List<VagaModel> findAllByDescricaoContainingIgnoreCase(String descricao);
+
+    List<VagaModel> findAllByAnunciante_Id(long anuncianteId);
 }

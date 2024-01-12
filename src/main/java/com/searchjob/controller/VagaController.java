@@ -27,6 +27,11 @@ public class VagaController {
                 .map(resp -> ResponseEntity.ok(resp))
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("mypost/{id}")
+    public ResponseEntity<List<VagaModel>> findPostsByUserId(@PathVariable long id){
+        return  ResponseEntity.ok(vagaRepository.findAllByAnunciante_Id(id));
+    }
     @GetMapping("/title/{title}")
     public ResponseEntity<List<VagaModel>> findByTitulo(@PathVariable String titulo){
         return ResponseEntity.ok(vagaRepository.findAllByTituloContainingIgnoreCase(titulo));

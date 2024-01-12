@@ -15,16 +15,6 @@ public class UserModel {
     private String email;
     private String password;
     private String tipo;
-    @OneToMany(mappedBy = "anunciante", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("vagaAnunciada")
-    private List<VagaModel> vagaAnunciada;
-    @ManyToMany(mappedBy = "candidato", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("vagaParticipando")
-    private List<VagaModel> vagaParticipando;
-    @OneToOne
-    @JsonIgnoreProperties("userModel")
-    private PerfilModel perfil;
-
     public long getId() {
         return id;
     }
@@ -63,28 +53,5 @@ public class UserModel {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public List<VagaModel> getVagaAnunciada() {
-        return vagaAnunciada;
-    }
-
-    public void setVagaAnunciada(List<VagaModel> vagaAnunciada) {
-        this.vagaAnunciada = vagaAnunciada;
-    }
-
-    public List<VagaModel> getVagaParticipando() {
-        return vagaParticipando;
-    }
-
-    public void setVagaParticipando(List<VagaModel> vagaParticipando) {
-        this.vagaParticipando = vagaParticipando;
-    }
-
-    public PerfilModel getPerfil() {
-        return perfil;
-    }
-    public void setPerfil(PerfilModel perfil) {
-        this.perfil = perfil;
     }
 }

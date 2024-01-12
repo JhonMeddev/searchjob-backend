@@ -20,11 +20,11 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public Optional<UserModel> cadastrarUsuario(UserModel email) {
-        if (userRepository.findByEmail(email.getEmail()).isPresent())
+    public Optional<UserModel> cadastrarUsuario(UserModel user) {
+        if (userRepository.findByEmail(user.getEmail()).isPresent())
             return Optional.empty();
-        email.setPassword(criptografarSenha(email.getPassword()));
-        return Optional.of(userRepository.save(email));
+        user.setPassword(criptografarSenha(user.getPassword()));
+        return Optional.of(userRepository.save(user));
     }
 
     public Optional<UserModel> atualizarUsuario(UserModel usuario) {

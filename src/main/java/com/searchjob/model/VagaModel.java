@@ -13,6 +13,7 @@ public class VagaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String titulo;
+    @Column(columnDefinition = "TEXT")
     private String descricao;
     @Temporal(TemporalType.TIMESTAMP)
     private Date data = new java.sql.Date(System.currentTimeMillis());
