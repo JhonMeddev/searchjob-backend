@@ -41,6 +41,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .antMatchers(HttpMethod.GET, "/vaga").permitAll()
                 .antMatchers(HttpMethod.GET, "/vaga/**").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/vaga/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/perfil").permitAll()
                 .antMatchers(HttpMethod.GET, "/perfil/**").permitAll()
                 .anyRequest().authenticated()

@@ -50,7 +50,7 @@ public class VagaController {
                 }).orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteVaga(@PathVariable long id){
         return vagaRepository.findById(id)
                 .map(vaga -> {
